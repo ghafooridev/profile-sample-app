@@ -18,7 +18,7 @@ const Main = function ({onSelect}) {
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
 	const [isNewCategory, setIsNewCategory] = useState(false);
-	const [newCategoryValue, setNewCategoryValue] = useState(null);
+	const [newCategoryValue, setNewCategoryValue] = useState('');
 
 
 	const onClickCategory = function (event) {
