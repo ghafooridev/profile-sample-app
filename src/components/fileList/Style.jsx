@@ -3,8 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 export const styles = makeStyles(theme => ({
 	imageContent: {
 		position: 'relative',
-		flex:'50%',
-		padding:5
+		flex: '50%',
+		padding: 5
 	},
 	image: {
 		borderRadius: 15,

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Profile from './Profile'
+import Post from './post'
 
 function App() {
-  return (
-    <div className="App">
-      <Profile/>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Post/>
+		</div>
+	);
 }
 
 export default App;

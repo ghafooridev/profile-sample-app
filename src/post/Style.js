@@ -39,13 +39,14 @@ export const styles = makeStyles(theme => ({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		flex: 1,
-		marginTop:10,
+		marginTop: 10,
 		borderTop: `1px solid ${theme.palette.grey[200]}`,
 		bottom: 0,
 		right: 10,
 		left: 28,
 		position: 'fixed',
-		backgroundColor: theme.palette.common.white
+		backgroundColor: theme.palette.common.white,
+		padding: '5px 0'
 	},
 	publishButton: {
 		color: theme.palette.common.white

@@ -5,14 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import ThemeContextProvider from './theme';
+import PostContextProvider from "./context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeContextProvider>
-    <App />
-    </ThemeContextProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<PostContextProvider>
+			<ThemeContextProvider>
+				<App/>
+			</ThemeContextProvider>
+		</PostContextProvider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
