@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import Image from '../components/fileList';
+import Image from '../components/imageGrid';
 import PostContext from '../context/postContext';
 
 const Files = function () {

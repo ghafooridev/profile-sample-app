@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import CategorySelector from '../components/categorySelector'
 import AvatarImage from '../assets/images/avatar.jpg'
 import PostContext from '../context/postContext';
+import CONSTANT from '../utils/constant';
 
 import {styles} from './Style';
 
@@ -14,7 +15,7 @@ const Header = function () {
 
 	const onSelectCategory = function (category) {
 		dispatch({
-			type: 'UPDATE_POST', payload: {category}
+			type: CONSTANT.ACTION_TYPE.UPDATE_POST, payload: {category}
 		});
 	}
 

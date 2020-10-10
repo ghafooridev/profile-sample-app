@@ -9,8 +9,8 @@ export const styles = makeStyles(theme => ({
 	header: {
 		display: 'flex',
 		flexDirection: 'row',
+		flex: 1,
 		justifyContent: 'space-between',
-		flex: 1
 	},
 	content: {
 		display: 'flex',
@@ -19,11 +19,8 @@ export const styles = makeStyles(theme => ({
 	},
 	titleInput: {
 		fontSize: '24px !important',
-
 	},
-	descriptionInput: {},
-
-	cssOutlinedInput: {
+	outlinedInput: {
 		'&$cssFocused $notchedOutline': {
 			border: `1px solid ${theme.palette.primary.main} !important`,
 		}
@@ -32,21 +29,20 @@ export const styles = makeStyles(theme => ({
 	notchedOutline: {
 		border: 'none !important'
 	},
-
 	Footer: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'space-between',
 		alignItems: 'center',
-		flex: 1,
-		marginTop: 10,
+		backgroundColor: theme.palette.common.white,
 		borderTop: `1px solid ${theme.palette.grey[200]}`,
 		bottom: 0,
-		right: 10,
+		display: 'flex',
+		flexDirection: 'row',
+		flex: 1,
+		justifyContent: 'space-between',
 		left: 28,
+		marginTop: 10,
+		padding: '5px 0',
 		position: 'fixed',
-		backgroundColor: theme.palette.common.white,
-		padding: '5px 0'
+		right: 10
 	},
 	publishButton: {
 		color: theme.palette.common.white

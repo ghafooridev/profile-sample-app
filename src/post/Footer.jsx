@@ -7,6 +7,7 @@ import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 import TheatersIcon from '@material-ui/icons/Theaters';
 import BarChart from '@material-ui/icons/BarChart';
 
+import CONSTANT from '../utils/constant';
 import PostContext from '../context/postContext';
 
 import {styles} from './Style';
@@ -17,7 +18,7 @@ const Footer = function () {
 
 	const onChange = function (event) {
 		dispatch({
-			type: 'ADD_FILE', payload: {id: uuid(), file: event.target.files[0]}
+			type: CONSTANT.ACTION_TYPE.ADD_FILE, payload: {id: uuid(), file: event.target.files[0]}
 		});
 	}
 

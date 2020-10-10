@@ -6,14 +6,12 @@ import PostContext from './postContext';
 import postReducer from './postReducer';
 
 const PostContextProvider = props => {
-
 	const initValue = {
 		category: null,
 		title: null,
 		description: null,
 		files: []
 	};
-
 	const {children} = props;
 	const [data, dispatch] = useReducer(postReducer, initValue);
 
@@ -27,5 +25,6 @@ const PostContextProvider = props => {
 PostContextProvider.propTypes = {
 	children: PropType.node.isRequired,
 };
+
 export default PostContextProvider;
 

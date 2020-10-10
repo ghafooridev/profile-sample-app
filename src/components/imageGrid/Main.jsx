@@ -1,15 +1,18 @@
 import React, {useContext, useEffect} from 'react';
 
+import PropType from 'prop-types';
+
 import IconButton from '@material-ui/core/IconButton';
 import CancelIcon from '@material-ui/icons/Cancel';
 
 import PostContext from '../../context/postContext';
+import CONSTANT from '../../utils/constant';
 
 import {styles} from './Style';
 
 const Main = function ({source}) {
 	const classes = styles();
-	const {data,dispatch} = useContext(PostContext);
+	const {data, dispatch} = useContext(PostContext);
 
 	const readURL = function () {
 		if (source) {
@@ -25,7 +28,7 @@ const Main = function ({source}) {
 
 	const onRemoveClick = function (id) {
 		dispatch({
-			type: 'REMOVE_FILE', payload: id
+			type: CONSTANT.ACTION_TYPE.REMOVE_FILE, payload: id
 		});
 	}
 
@@ -50,4 +53,12 @@ const Main = function ({source}) {
 
 	)
 }
+
+Main.propTypes = {
+	source: PropType.shape({
+		id: PropType.string,
+		file: PropType.object
+	}),
+};
+
 export default Main

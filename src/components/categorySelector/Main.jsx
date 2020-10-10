@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
+import PropType from 'prop-types';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Menu from '@material-ui/core/Menu';
@@ -9,17 +11,18 @@ import PlusIcon from '@material-ui/icons/Add';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import {styles} from './Style';
-import {func} from "prop-types";
 
 const Main = function ({onSelect}) {
-	const categories = ['مدیریت محصول', 'طراحی محصول', 'هنر'];
-
-	const classes = styles()
+	const classes = styles();
+	const [categories, setCategories] = useState(['مدیریت محصول', 'طراحی محصول', 'هنر']);
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
-	const [isNewCategory, setIsNewCategory] = useState(false)
+	const [isNewCategory, setIsNewCategory] = useState(false);
+	const [newCategoryValue, setNewCategoryValue] = useState(null);
+
 
 	const onClickCategory = function (event) {
+		setIsNewCategory(false)
 		setAnchorEl(event.currentTarget);
 	}
 
@@ -34,7 +37,15 @@ const Main = function ({onSelect}) {
 	}
 
 	const onCreateCategory = function () {
+		if (newCategoryValue.trim().length) {
+			setCategories([...categories, newCategoryValue])
+			setSelectedValue(newCategoryValue);
+			setIsNewCategory(false);
+		}
+	}
 
+	const onNewCategoryInputChange = function (event) {
+		setNewCategoryValue(event.target.value);
 	}
 
 	useEffect(() => {
@@ -44,22 +55,29 @@ const Main = function ({onSelect}) {
 	return (
 		<div>
 			<Button
-				classes={{root: classes.button}}
+				classes={{root: classes.MenuButton}}
 				endIcon={isNewCategory ? <ClearIcon color='primary'/> : <DeleteIcon color='primary'/>}
 				onClick={onClickCategory}
 			>
 				{isNewCategory ? 'دسته بندی جدید' : selectedValue ? selectedValue : 'انتخاب دسته بندی'}
 			</Button>
 			{isNewCategory ?
-				<div>
+				<div className={classes.newCategoryContainer}>
 					<TextField
 						placeholder="عنوان دسته بندی"
 						variant="outlined"
+						size="small"
+						inputProps={{
+							className: classes.newCategoryInput
+						}}
+						onChange={onNewCategoryInputChange}
 					/>
 					<Button
 						color='primary'
 						variant="contained"
+						size='small'
 						onClick={onCreateCategory}
+						classes={{root: classes.createButton}}
 					>
 						ایجاد
 					</Button>
@@ -89,7 +107,7 @@ const Main = function ({onSelect}) {
 							</MenuItem>)
 						}
 						<Button
-							classes={{root: classes.button}}
+							classes={{root: classes.MenuButton}}
 							endIcon={<PlusIcon color='primary'/>}
 							onClick={onAddCategory}
 						>
@@ -100,5 +118,9 @@ const Main = function ({onSelect}) {
 		</div>
 	);
 }
+
+Main.propTypes = {
+	onSelect: PropType.func,
+};
 
 export default Main

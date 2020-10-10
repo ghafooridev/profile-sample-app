@@ -3,6 +3,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 
 import PostContext from '../context/postContext';
+import CONSTANT from '../utils/constant';
 
 import {styles} from './Style';
 
@@ -17,7 +18,7 @@ const Content = function () {
 
 	useEffect(() => {
 		dispatch({
-			type: 'UPDATE_POST', payload: state
+			type: CONSTANT.ACTION_TYPE.UPDATE_POST, payload: state
 		});
 	}, [state])
 
@@ -30,7 +31,7 @@ const Content = function () {
 				onChange={onTextChange}
 				InputProps={{
 					classes: {
-						root: classes.cssOutlinedInput,
+						root: classes.outlinedInput,
 						focused: classes.cssFocused,
 						notchedOutline: classes.notchedOutline,
 					},
@@ -48,13 +49,10 @@ const Content = function () {
 				rows={4}
 				InputProps={{
 					classes: {
-						root: classes.cssOutlinedInput,
+						root: classes.outlinedInput,
 						focused: classes.cssFocused,
 						notchedOutline: classes.notchedOutline,
 					},
-				}}
-				inputProps={{
-					className: classes.descriptionInput
 				}}
 			/>
 		</div>
